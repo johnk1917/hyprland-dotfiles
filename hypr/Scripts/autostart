@@ -2,6 +2,7 @@
 
 # Start Wallpaper
 swww init 
+swww img $HOME/.config/hypr/Wallpapers/AnimeWaiting.png
 
 # Start dunst
 dunst &
