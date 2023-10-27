@@ -2,6 +2,9 @@
 
 ## Script To Manage Brightness For Axyl OS.
 
+# Icon directory
+icon_dir="$HOME/.config/hypr/icons/"
+
 # Graphics card
 CARD=$(basename "$(find /sys/class/backlight/* | head -n 1)")
 
@@ -21,13 +24,13 @@ get_icon() {
 	backlight="$(get_backlight)"
 	current="${backlight%%%}"
 	if [[ ("$current" -ge "0") && ("$current" -le "20") ]]; then
-		icon='/usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-off-symbolic.svg'
+		icon=${icon_dir}'display-brightness-off-symbolic.svg'
 	elif [[ ("$current" -ge "20") && ("$current" -le "40") ]]; then
-		icon='/usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-low-symbolic.svg'
+		icon=${icon_dir}'display-brightness-low-symbolic.svg'
 	elif [[ ("$current" -ge "40") && ("$current" -le "60") ]]; then
-		icon='/usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-medium-symbolic.svg'
+		icon=${icon_dir}'display-brightness-medium-symbolic.svg'
 	elif [[ ("$current" -ge "60") && ("$current" -le "100") ]]; then
-		icon='/usr/share/icons/Papirus-Dark/symbolic/status/display-brightness-high-symbolic.svg'
+		icon=${icon_dir}'display-brightness-high-symbolic.svg'
 	fi
 }
 
@@ -45,7 +48,7 @@ dec_backlight() {
 	if [[ "$CARD" == *"intel_"* ]]; then
 		brightnessctl sset 5%- && get_icon && dunstify -u low --replace=69 -i "$icon" "Brightness : $(get_backlight)"
 	else
-		light -U 5 && get_icon && dunstify -u low --replace=69 -i "$icon" "BRIGHTNESS : $(get_backlight)"
+		light -U 5 && get_icon && dunstify -u low --replace=69 -i "$icon" "Brightness : $(get_backlight)"
 	fi
 }
 

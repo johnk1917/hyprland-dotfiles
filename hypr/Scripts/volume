@@ -2,6 +2,9 @@
 
 ## Script To Manage Speaker Volume For Axyl OS.
 
+# Icon directory 
+icon_dir="$HOME/.config/hypr/icons/"
+
 # Get Volume
 get_volume() {
 	volume=$(echo $(pamixer --get-volume))
@@ -13,15 +16,15 @@ get_icon() {
 	vol="$(get_volume)"
 	current="${vol%%%}"
 	if [[ "$current" -eq "0" ]]; then
-		icon='/usr/share/icons/Papirus-Dark/symbolic/status/audio-volume-muted-symbolic.svg'
+		icon=${icon_dir}'audio-volume-muted-symbolic.svg'
 	elif [[ ("$current" -ge "0") && ("$current" -le "30") ]]; then
-		icon='/usr/share/icons/Papirus-Dark/symbolic/status/audio-volume-low-symbolic.svg'
+		icon=${icon_dir}'audio-volume-low-symbolic.svg'
 	elif [[ ("$current" -ge "30") && ("$current" -le "60") ]]; then
-		icon='/usr/share/icons/Papirus-Dark/symbolic/status/audio-volume-medium-symbolic.svg'
+		icon=${icon_dir}'audio-volume-medium-symbolic.svg'
 	elif [[ ("$current" -ge "60") && ("$current" -le "90") ]]; then
-		icon='/usr/share/icons/Papirus-Dark/symbolic/status/audio-volume-high-symbolic.svg'
+		icon=${icon_dir}'audio-volume-high-symbolic.svg'
 	elif [[ ("$current" -ge "90") && ("$current" -le "100") ]]; then
-		icon='/usr/share/icons/Papirus-Dark/symbolic/status/audio-volume-overamplified-symbolic.svg'
+		icon=${icon_dir}'audio-volume-overamplified-symbolic.svg'
 	fi
 }
 
@@ -42,7 +45,7 @@ toggle_mute() {
 	if [[ "$status" == "true" ]]; then
 		pamixer --unmute && get_icon && dunstify -u low --replace=69 -i "$icon" "Unmuted"
 	else
-		pamixer --mute && dunstify -u low --replace=69 -i '/usr/share/icons/Papirus-Dark/symbolic/status/audio-volume-muted-symbolic.svg' "Muted"
+		pamixer --mute && dunstify -u low --replace=69 -i ${icon_dir}'audio-volume-muted-symbolic.svg' "Muted"
 	fi
 }
 
