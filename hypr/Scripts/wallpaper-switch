@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+list_wallpapers() {
+    for file in "$1"/*
+    do
+        if [[ -f "$file" ]]; then
+            echo -en "$(basename "$file")\0icon\x1f$(realpath "$file")\n"
+        fi
+    done
+}
+
+selected_wallpaper="$(list_wallpapers $HYPR_WALLS |  bemenu -i -l 15 -p "Select Wallpaper:" \
+    --fn 'Iosevka Nerd Font 16px' \
+    --nb '#16161e[FF]' --ff '#abb2bf[FF]' \
+    --tb '#7aa2f7[FF]' --tf '#16161e[FF]' \
+    --fb '#16161e[FF]' --ff '#abb2bf[FF]' \
+    --hb '#7aa2f7[FF]' --hf '#16161e[FF]' \
+    --ab '#16161e[FF]' --sf '#7aa2f7[FF]' \
+  )"
+
+if [[ -f "$selected_wallpaper" ]]; then
+    exit 0;
+fi
+
+swww img "$HYPR_WALLS/$selected_wallpaper"

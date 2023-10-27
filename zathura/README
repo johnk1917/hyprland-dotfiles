@@ -1,0 +1,2 @@
+In order to get transparency enabled on zathura pdf reader like I have, you must use zathura-pywal to order to do this.
+All the information you need can be found here: https://github.com/mlscarlson/zathura-pywal

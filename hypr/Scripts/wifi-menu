@@ -1,0 +1,23 @@
+#!/bin/sh 
+bssid=$(nmcli dev wifi list | sed -n '1!p' | cut -b 9- | bemenu -i -l 15 -p "Connect to WiFi:" \
+    --fn 'Iosevka Nerd Font 16px' \
+    --nb '#16161e[FF]' --ff '#abb2bf[FF]' \
+    --tb '#7aa2f7[FF]' --tf '#16161e[FF]' \
+    --fb '#16161e[FF]' --ff '#abb2bf[FF]' \
+    --hb '#7aa2f7[FF]' --hf '#16161e[FF]' \
+    --ab '#16161e[FF]' --sf '#7aa2f7[FF]' \ | cut -d' ' -f1)
+
+password=$(echo "" | bemenu -i -l 0 -p "Enter Password:" \
+    --fn 'Iosevka Nerd Font 16px' \
+    --nb '#16161e[FF]' --ff '#abb2bf[FF]' \
+    --tb '#7aa2f7[FF]' --tf '#16161e[FF]' \
+    --fb '#16161e[FF]' --ff '#abb2bf[FF]' \
+    --hb '#7aa2f7[FF]' --hf '#16161e[FF]' \
+    --ab '#16161e[FF]' --sf '#7aa2f7[FF]' \ ) 
+
+if [ $? != 0 ]
+then
+    exit
+fi
+
+nmcli device wifi connect $bssid password $password

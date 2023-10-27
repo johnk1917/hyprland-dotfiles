@@ -1,0 +1,2 @@
+In order to get the swaylock theme properly working, you must install swaylock-effects instead of the default swaylock. 
+To change the background, edit the config and change the path on line 27 to your desired image location. It is recommended the  background be a blurred version of your personal wallpaper.

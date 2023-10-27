@@ -1,0 +1,1 @@
+In order to have waybar working, you need to install waybar with whatever package manager your distriution uses. then copy the bottom of my sway config which replaces swaybar with waybar into your ~/.config/sway/config file.
