@@ -1,5 +1,5 @@
 disable-caps-lock-text
-font-size=54
+font-size=50
 timestr=%H:%M
 datestr=%a, %d %b
 daemonize
@@ -8,21 +8,25 @@ fade-in=0.3
 clock
 indicator-idle-visible
 indicator-radius=150
-indicator-thickness=2
+indicator-thickness=10
 text-wrong-color=FFFFFFFF
 text-ver-color=FFFFFFFF
 text-clear-color=FFFFFFFF
-key-hl-color=3C4147FF
+key-hl-color=e0af68FF
+bs-hl-color=f7768eFF
 inside-color=2B303B7F
 inside-clear-color=2B303B7F
 inside-wrong-color=2B303B7F
+ring-clear-color=bb9af7FF
+ring-wrong-color=f7768eff
+ring-ver-color=9ece6aff
 inside-ver-color=2B303B7F
-ring-color=FFFFFFFF
-line-clear-color=FFFFFFFF
-line-ver-color=008AFFFF
-line-wrong-color=CC6666FF
+ring-color=7AA2F7FF
+line-clear-color=bb9af7FF
+line-ver-color=9ece6aFF
+line-wrong-color=f7768eFF
 separator-color=FFFFFF00
 line-color=FFFFFF00
 text-color=FFFFFFFF
-font=Iosevka
+font=Jetbrains Mono
 # image=~/.config/swaylock/blur_swaylock.png
