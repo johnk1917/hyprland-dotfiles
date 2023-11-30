@@ -1,5 +1,5 @@
 disable-caps-lock-text
-font-size=50
+font-size=40
 timestr=%H:%M
 datestr=%a, %d %b
 daemonize
@@ -19,12 +19,12 @@ inside-clear-color=2B303B7F
 inside-wrong-color=2B303B7F
 ring-clear-color=bb9af7FF
 ring-wrong-color=f7768eff
-ring-ver-color=9ece6aff
+ring-ver-color=7dcfffff
 inside-ver-color=2B303B7F
 ring-color=7AA2F7FF
-line-clear-color=bb9af7FF
-line-ver-color=9ece6aFF
-line-wrong-color=f7768eFF
+line-clear-color=FFFFFF00
+line-ver-color=FFFFFF00
+line-wrong-color=FFFFFF00
 separator-color=FFFFFF00
 line-color=FFFFFF00
 text-color=FFFFFFFF
