@@ -1,0 +1,171 @@
+* {
+
+  border: none;
+  font-family: Iosevka Nerd Font, sans-serif;
+  font-size: 15px;
+}
+
+window#waybar {
+  /* background-color: rgba(18, 21, 29, 0.98); */
+  box-shadow: 5px 10px;
+  background-color: #1a1b26;
+  opacity: 1;
+  /* background-color: rgba(0, 0, 0, 0); */
+  border-radius: 6px;
+  color: #abb2bf;
+  transition-property: background-color;
+  transition-duration: .5s;
+  margin-bottom: -7px;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#tags,
+#window,
+#mode,
+#cpu,
+#memory,
+#temperature,
+#custom-media,
+#custom-powermenu,
+#custom-fans,
+#custom-wmname,
+#clock,
+#idle_inhibitor,
+#language,
+#pulseaudio,
+#backlight,
+#battery,
+#network,
+#tray {
+  background-color: #1f1f2d;
+  padding: 0 10px;
+  margin: 3px 2px 3px 2px;
+  border: 3px solid rgba(0, 0, 0, 0);
+  border-radius: 6px;
+  background-clip: padding-box;
+}
+
+#tags button {
+  padding: 0 5px;
+  min-width: 20px;
+  color: #a9b1d6;
+}
+
+#tags button:hover {
+  background-color: rgba(0, 0, 0, 0.2)
+}
+
+#tags button.focused {
+  color: #7aa2f7;
+}
+
+#tags button.urgent {
+  color: #e06c75;
+}
+
+#cpu {
+  color: #e0af68;
+}
+
+#memory {
+  color: #e06c75;
+}
+
+#temperature {
+  color: #7aa2f7;
+}
+
+#temperature.critical {
+  background-color: #e06c75;
+  color: #1a1b26;
+}
+
+#custom-media {
+  background-color: #c678dd;
+  color: #1a1b26;
+}
+
+#custom-fans {
+  color: #7aa2f7;
+}
+
+#clock {
+  color: #7aa2f7;
+}
+
+#idle_inhibitor {
+  color: #abb2bf;
+}
+
+#idle_inhibitor.activated {
+  background-color: #abb2bf;
+  color: #1a1b26;
+}
+
+#language {
+  color: #7aa2f7;
+}
+
+#pulseaudio {
+  color: #449dab;
+}
+
+#pulseaudio.muted {
+  background-color: #e06c75;
+  color: #1a1b26;
+}
+
+#backlight {
+  color: #ad8ee6;
+}
+
+#battery {
+  color: #98c379;
+}
+
+#battery.charging, #battery.plugged {
+  background-color: #98c379;
+  color: #1a1b26;
+}
+
+@keyframes blink {
+    to {
+        background-color: #1a1b26;
+        color: #e06c75;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #e06c75;
+    color: #1a1b26;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network {
+    color: #7dcfff;
+}
+
+#custom-wmname {
+    color: #7aa2f7;
+    background-color: #1a1b26;
+    font-size: 25px;
+    margin: 1px;
+    padding: 0px 0px 0px 5px;
+}
+
+#network.disconnected {
+    background-color: #e06c75;
+    color: #1a1b26;
+}
+#custom-powermenu {
+    background-color: #e06c75;
+    color: #1a1b26;
+    padding-right: 7px;
+}
