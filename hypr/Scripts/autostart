@@ -1,8 +1,8 @@
 #!/bin/sh 
 
 # Start Wallpaper
-swww init 
-swww img $HOME/.config/hypr/Wallpapers/AnimeWaiting.png
+swww init
+swww img $HOME/.config/hypr/Wallpapers/hashira.png &
 
 # Start dunst
 dunst &
@@ -11,5 +11,5 @@ dunst &
 foot --server &
 
 # Start waybar
-waybar
+waybar -c $HOME/.config/waybar/hyprland/config -s $HOME/.config/waybar/hyprland/style.css  
 

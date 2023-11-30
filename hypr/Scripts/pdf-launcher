@@ -1,19 +1,9 @@
 #!/bin/sh
 
 book_directory="$HOME/Documents/Books/"
-selected=$(ls -r ${book_directory} | grep -E "*pdf$" | bemenu -i -l 15 -p "Open PDF:" \
-    --fn 'Iosevka Nerd Font 16px' \
-    --nb '#16161e[FF]' --ff '#abb2bf[FF]' \
-    --tb '#7aa2f7[FF]' --tf '#16161e[FF]' \
-    --fb '#16161e[FF]' --ff '#abb2bf[FF]' \
-    --hb '#7aa2f7[FF]' --hf '#16161e[FF]' \
-    --ab '#16161e[FF]' --sf '#7aa2f7[FF]' \
-)
+selected=$(ls -r "${book_directory}" | grep -E "*pdf$" | rofi -dmenu -theme ~/.config/rofi/launchers/type-4/library.rasi drun -display-drun -p " ")
 
-if [ $? != 0 ]
-then
-    exit
-fi
+[ -z "$selected" ] && exit
 
 zathura ${book_directory}"${selected}"
 

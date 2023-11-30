@@ -6,14 +6,7 @@ op3="Reboot"
 
 ops="${op1}\n${op2}\n${op3}"
 
-selected=$(echo -e $ops | bemenu -i -l 15 -p "Powermenu:" \
-    --fn 'Iosevka Nerd Font 16px' \
-    --nb '#16161e[FF]' --ff '#abb2bf[FF]' \
-    --tb '#7aa2f7[FF]' --tf '#16161e[FF]' \
-    --fb '#16161e[FF]' --ff '#abb2bf[FF]' \
-    --hb '#7aa2f7[FF]' --hf '#16161e[FF]' \
-    --ab '#16161e[FF]' --sf '#7aa2f7[FF]' \
-  )
+selected=$(echo -e $ops | rofi -dmenu -theme ~/.config/rofi/config.rasi drun -display-drun -p "⏻ ")
 
 sleep 0.7
 

@@ -1,23 +1,31 @@
 #!/bin/sh 
-bssid=$(nmcli dev wifi list | sed -n '1!p' | cut -b 9- | bemenu -i -l 15 -p "Connect to WiFi:" \
-    --fn 'Iosevka Nerd Font 16px' \
-    --nb '#16161e[FF]' --ff '#abb2bf[FF]' \
-    --tb '#7aa2f7[FF]' --tf '#16161e[FF]' \
-    --fb '#16161e[FF]' --ff '#abb2bf[FF]' \
-    --hb '#7aa2f7[FF]' --hf '#16161e[FF]' \
-    --ab '#16161e[FF]' --sf '#7aa2f7[FF]' \ | cut -d' ' -f1)
+bssid=$(nmcli dev wifi list | sed -n '1!p' | cut -b 9- | rofi -dmenu -theme ~/.config/rofi/launchers/type-4/wifi-menu.rasi -p " "| cut -d' ' -f1)
 
-password=$(echo "" | bemenu -i -l 0 -p "Enter Password:" \
-    --fn 'Iosevka Nerd Font 16px' \
-    --nb '#16161e[FF]' --ff '#abb2bf[FF]' \
-    --tb '#7aa2f7[FF]' --tf '#16161e[FF]' \
-    --fb '#16161e[FF]' --ff '#abb2bf[FF]' \
-    --hb '#7aa2f7[FF]' --hf '#16161e[FF]' \
-    --ab '#16161e[FF]' --sf '#7aa2f7[FF]' \ ) 
+[ -z "$bssid" ] && exit
 
-if [ $? != 0 ]
-then
-    exit
-fi
+password=$(echo "" | rofi -dmenu -theme ~/.config/rofi/launchers/type-4/wifi-password.rasi -p " " )
 
-nmcli device wifi connect $bssid password $password
+wifi_network=$(nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d\' -f2 | sed 's/^[^:]*://')
+icon=$HOME/.config/hypr/icons/wifi-icon.png
+iconE=$HOME/.config/hypr/icons/error-warning.png
+
+[ -z "$password" ] && exit
+
+# Notify the status
+notify_connect() {
+  status=$(echo $?)
+
+  if [[ "$status" == '0' ]]; then
+    dunstify -u low --replace=69 -i "$icon" "Connected to Network: $wifi_network"
+  elif [[ "$status" -gt 0 ]]; then 
+    dunstify -u low --replace=69 -i "$iconE" "Unable to Connect: Incorrect Passphrase"
+  fi
+}
+
+# Connect to the Wifi & Display status 
+nmcli device wifi connect $bssid password $password ; notify_connect
+
+
+
+
+
