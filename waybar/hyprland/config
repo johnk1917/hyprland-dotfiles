@@ -26,7 +26,7 @@
              "7": " ",
              "8": " ",
              "9": " ",
-             "10": " ",
+             "10": "󰊴 ",
          }
      },
     "hyprland/window": {  
@@ -50,11 +50,11 @@
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-	"format": "  {:%H:%M}",
+	"format": " {:%H:%M}",
 	"format-alt": " {:%A, %B %d, %Y}"
     },
     "cpu": {
-        "format": "  {usage}%",
+        "format": " {usage}%",
         "tooltip": false
     },
     "memory": {
@@ -66,7 +66,7 @@
         "format-icons": [" ", " ", " "]
     },
     "backlight": {
-        "format": "{icon} {percent}%",
+        "format": "{icon}{percent}%",
         "format-icons": ["󰃞 ", "󰃟 ", "󰃠 "],
         "on-scroll-up": "light -A 1",
         "on-scroll-down": "light -U 1"
@@ -76,15 +76,15 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
+        "format": "{icon}{capacity}%",
         "tooltip-format": "{timeTo}, {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " ",
         "format-alt": "{time} {icon}",
-        "format-icons": [" ", " ", " ", " ", " "]
+        "format-icons": ["  ", "  ", "  ", "  ", "  "]
     },
     "network": {
-        "format-wifi": "󰖩  {essid}",
+        "format-wifi": "󰖩 {essid}",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
         "format-linked": "{ifname} (No IP)  ",
         "format-disconnected": "󰖪  Disconnected",
@@ -92,7 +92,7 @@
         "tooltip-format": "{essid} {signalStrength}%"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}% {format_source}",
+        "format": "{icon}{volume}% {format_source}",
         "format-bluetooth": "{icon} {volume}% {format_source}",
         "format-bluetooth-muted": "   {volume}% {format_source}",
         "format-muted": "  {format_source}",

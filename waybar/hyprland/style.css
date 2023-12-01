@@ -1,17 +1,18 @@
+@import "tokyo-night.css";
+
 * {
 
   border: none;
-  font-family: Iosevka Nerd Font, sans-serif;
-  font-size: 15px;
+  font-family: JetBrainsMono Nerd Font, sans-serif;
+  font-size: 14px;
 }
 
 window#waybar {
   /* background-color: rgba(18, 21, 29, 0.98); */
-  background-color: #1a1b26;
-  border: 3px #7aa2f7;
+  background-color: @background;
   /* background-color: rgba(0, 0, 0, 0); */
   border-radius: 6px;
-  color: #abb2bf;
+  color: @foreground;
   opacity: 1;
   transition-property: background-color;
   transition-duration: .5s;
@@ -20,6 +21,10 @@ window#waybar {
 
 window#waybar.hidden {
   opacity: 0.2;
+}
+
+window#hyprland-window {
+  background-color: @background;
 }
 
 #workspaces,
@@ -40,18 +45,19 @@ window#waybar.hidden {
 #battery,
 #network,
 #tray {
-  background-color: #1f1f2d;
-  padding: 0 8px;
-  margin: 2px 2px 2px 2px;
-  border: 3px solid rgba(0, 0, 0, 0);
+  background-color: @alt_background;
+  padding: 0 10px;
+  margin: 5px 2px 5px 2px;
+  border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 6px;
   background-clip: padding-box;
 }
 
 #workspaces button {
+  background-color: @alt_background;
   padding: 0 5px;
   min-width: 20px;
-  color: #a9b1d6;
+  color: @foreground;
 }
 
 #workspaces button:hover {
@@ -59,83 +65,98 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-  color: #7aa2f7;
+  color: @blue;
 }
 
 #workspaces button.urgent {
-  color: #e06c75;
+  color: @red;
 }
 
 #cpu {
-  color: #7bdaf1;
+  padding: 0 10px;
+  color: @alt_cyan;
 }
 
 #memory {
-  color: #7bdaf1;
+  padding: 0 10px;
+  color: @alt_cyan;
 }
 
 #temperature {
-  color: #7aa2f7;
+  padding: 0 10px;
+  color: @blue;
 }
 
 #temperature.critical {
-  background-color: #e06c75;
-  color: #1a1b26;
+  background-color: @red;
+  padding: 0 10px;
+  color: @background;
 }
 
 #custom-media {
   background-color: #c678dd;
-  color: #1a1b26;
+  padding: 0 10px;
+  color: @background;
 }
 
 #custom-fans {
-  color: #7aa2f7;
+  padding: 0 10px;
+  color: @blue;
 }
 
 #clock {
-  color: #7aa2f7;
+  padding: 0 10px;
+  color: @blue;
 }
 
 #idle_inhibitor {
-  color: #abb2bf;
+  padding: 0 10px;
+  color: @foreground;
 }
 
 #language {
-  color: #7aa2f7;
+  padding: 0 10px;
+  color: @blue;
 }
 
 #pulseaudio {
-  color: #e0af68;
+  padding: 0 10px;
+  color: @yellow;
 }
 
 #pulseaudio.muted {
-  background-color: #e06c75;
-  color: #1a1b26;
+  padding: 0 10px;
+  background-color: @red;
+  color: @background;
 }
 
 #backlight {
-  color: #e0af68;
+  padding: 0 10px;
+  color: @yellow;
 }
 
 #battery {
-  color: #18ffb1;
+  padding: 0 10px;
+  color: @alt_green;
 }
 
 #battery.charging, #battery.plugged {
-  background-color: #18ffb1;
-  color: #1a1b26;
+  padding: 0 10px;
+  background-color: @alt_green;
+  color: @background;
 }
 
 @keyframes blink {
     to {
-        background-color: #1a1b26;
-        color: #e06c75;
+        background-color: @background;
+        color: @red;
     }
 }
 
 #battery.critical:not(.charging) {
-    background-color: #e06c75;
-    color: #1a1b26;
+    padding: 0 10px;
+    background-color: @red;
+    color: @background;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -144,25 +165,28 @@ window#waybar.hidden {
 }
 
 #network {
-    color: #7aa3f7;
+    padding: 0 10px;
+    color: @blue;
 }
 
 #custom-wmname {
-    color: #7aa2f7;
-    background-color: #1a1b26;
+    color: @blue;
+    background-color: @background;
     font-size: 25px;
     margin: 1px;
     padding: 0px 0px 0px 5px;
 }
 
 #network.disconnected {
-    background-color: #e06c75;
-    color: #1a1b26;
+    padding: 0 10px;
+    background-color: @red;
+    color: @background;
 }
 #custom-powermenu {
-    background-color: #e06c75;
-    color: #1a1b26;
+    background-color: @red;
+    color: @background;
     font-size: 15px;
     padding-right: 6px;
     padding-left: 9px;
+    margin: 5px;
 }
